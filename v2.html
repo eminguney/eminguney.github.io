@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-  <html lang="tr">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Öğr. Üyesi Emin Güney</title>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Öğr. Üyesi Emin Güney</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    :root{
-      --bg:#14181d;
+<style>
+  :root{
+    --bg:#14181d;
     --bg-alt:#1c2128;
     --text:#e8e9ea;
-          --muted:#9aa2ad;
+    --muted:#9aa2ad;
     --accent:#3ea8ff;
     --border:#2a2f37;
-}
+  }
   *{box-sizing:border-box;}
   body{
-        margin:0;
+    margin:0;
     font-family:'Segoe UI',Arial,sans-serif;
     background:var(--bg);
     color:var(--text);
     line-height:1.6;
-}
+    transition:background 0.2s, color 0.2s;
+  }
+  body.light{
+    --bg:#f4f6f9;
+    --bg-alt:#ffffff;
+    --text:#1b1f24;
+    --muted:#5a6472;
+    --border:#dfe3e8;
+  }
   a{color:var(--accent); text-decoration:none;}
   a:hover{text-decoration:underline;}
 
@@ -38,69 +46,76 @@
   nav a{color:var(--text); font-weight:500;}
   nav a.active, nav a:hover{color:var(--accent); text-decoration:none;}
 
+  .controls{display:flex; align-items:center; gap:12px;}
+  .lang-btn{
+    background:var(--accent); color:#06141f; border:none; font-weight:700;
+    width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:0.85em;
+  }
+  .lang-btn:hover{opacity:0.85;}
+  .theme-btn{
+    background:var(--bg-alt); color:var(--text); border:1px solid var(--border);
+    width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:1em;
+  }
+  .theme-btn:hover{color:var(--accent);}
+
   .hero{
     display:flex; gap:40px; padding:60px 30px 40px; max-width:1100px; margin:0 auto;
     flex-wrap:wrap-reverse;
-}
+  }
   .hero-text{flex:1 1 480px;}
-      .hero-text h1{font-size:2.4em; margin:0 0 6px;}
+  .hero-text h1{font-size:2.4em; margin:0 0 6px;}
   .hero-text .subtitle{color:var(--muted); margin-bottom:22px;}
-  .hero-text p{margin:0 0 16px; color:#c9cdd3;}
+  .hero-text p{margin:0 0 16px; color:var(--text);}
   .hero-photo{flex:0 0 220px; text-align:center;}
-      .hero-photo img{width:220px; height:220px; object-fit:cover; border-radius:12px; border:2px solid var(--border);}
+  .hero-photo img{width:220px; height:220px; object-fit:cover; border-radius:12px; border:2px solid var(--border);}
   .contact-box{
     background:var(--bg-alt); border:1px solid var(--border); border-radius:10px;
     padding:16px 20px; margin-top:16px; font-size:0.95em;
-}
+  }
   .contact-box div{margin-bottom:6px;}
   .contact-box i{width:18px; color:var(--accent); margin-right:8px;}
 
   .pill-group{display:flex; flex-wrap:wrap; gap:12px; margin:24px 0;}
   .pill{
-        background:var(--accent); color:#06141f; font-weight:600;
+    background:var(--accent); color:#06141f; font-weight:600;
     padding:10px 18px; border-radius:30px; font-size:0.92em;
     display:flex; align-items:center; gap:8px;
-      }
+  }
 
   section{max-width:1100px; margin:0 auto; padding:36px 30px;}
   section h2{
-        font-size:1.7em; border-bottom:2px solid var(--accent);
+    font-size:1.7em; border-bottom:2px solid var(--accent);
     display:inline-block; padding-bottom:6px; margin-bottom:26px;
-}
+  }
   h3.subhead{color:var(--accent); font-size:1.1em; margin:28px 0 14px;}
 
   .entry{
     background:var(--bg-alt); border:1px solid var(--border); border-radius:10px;
     padding:18px 22px; margin-bottom:14px;
-    }
+  }
   .entry .role{font-weight:700;}
-      .entry .date{color:var(--muted); font-size:0.88em;}
-  .entry .place{color:#c9cdd3; font-size:0.95em; margin-top:4px;}
+  .entry .date{color:var(--muted); font-size:0.88em;}
+  .entry .place{color:var(--text); font-size:0.95em; margin-top:4px;}
 
   .pub{
     background:var(--bg-alt); border:1px solid var(--border); border-radius:10px;
     padding:18px 22px; margin-bottom:14px;
-}
-  .pub .title{font-weight:700; font-size:1.02em; margin-bottom:6px;}
-      .pub .authors{color:#c9cdd3; font-size:0.93em; margin-bottom:4px;}
-  .pub .venue{font-style:italic; color:var(--muted); font-size:0.9em; margin-bottom:10px;}
-      .pub .badges{display:flex; gap:10px; flex-wrap:wrap;}
-  .badge{
-        background:#0f1319; border:1px solid var(--border); color:var(--muted);
-    padding:5px 12px; border-radius:20px; font-size:0.8em;
-    }
-  .badge.doi{background:var(--accent); color:#06141f; border:none; font-weight:600;}
-      .badge.doi:hover{opacity:0.85;}
-
-      .year-tag{
-    display:inline-block; background:var(--bg-alt); border:1px solid var(--border);
-    color:var(--accent); font-weight:700; padding:4px 12px; border-radius:6px; margin-bottom:10px;
   }
+  .pub .title{font-weight:700; font-size:1.02em; margin-bottom:6px;}
+  .pub .authors{color:var(--text); font-size:0.93em; margin-bottom:4px;}
+  .pub .venue{font-style:italic; color:var(--muted); font-size:0.9em; margin-bottom:10px;}
+  .pub .badges{display:flex; gap:10px; flex-wrap:wrap;}
+  .badge{
+    background:var(--bg); border:1px solid var(--border); color:var(--muted);
+    padding:5px 12px; border-radius:20px; font-size:0.8em;
+  }
+  .badge.doi{background:var(--accent); color:#06141f; border:none; font-weight:600;}
+  .badge.doi:hover{opacity:0.85;}
 
   footer{
     text-align:center; padding:30px; color:var(--muted); font-size:0.85em;
     border-top:1px solid var(--border); margin-top:40px;
-}
+  }
 </style>
 </head>
 <body>
@@ -113,344 +128,364 @@
     <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
     <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
   </div>
-      <nav>
-        <a href="#anasayfa" class="active">Anasayfa</a>
-    <a href="#ogrenim">Öğrenim</a>
-        <a href="#gorevler">Görevler</a>
-        <a href="#projeler">Projeler</a>
-    <a href="#yayinlar">Yayınlar</a>
-    <a href="#deneyim">Deneyim</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#anasayfa" class="active" data-tr="Anasayfa" data-en="Home">Anasayfa</a>
+    <a href="#ogrenim" data-tr="Öğrenim" data-en="Education">Öğrenim</a>
+    <a href="#gorevler" data-tr="Görevler" data-en="Positions">Görevler</a>
+    <a href="#projeler" data-tr="Projeler" data-en="Projects">Projeler</a>
+    <a href="#yayinlar" data-tr="Yayınlar" data-en="Publications">Yayınlar</a>
+    <a href="#deneyim" data-tr="Deneyim" data-en="Experience">Deneyim</a>
+  </nav>
+  <div class="controls">
+    <button id="langBtn" class="lang-btn" onclick="toggleLang()" title="English">EN</button>
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" title="Tema"><i class="fa-solid fa-moon"></i></button>
+  </div>
+</header>
 
-  <div class="hero" id="anasayfa">
-    <div class="hero-text">
-      <h1>Emin Güney</h1>
-    <div class="subtitle">Doktor Öğretim Üyesi — Sakarya Uygulamalı Bilimler Üniversitesi, Bilgisayar Mühendisliği</div>
-      <p>Bilgisayar mühendisliği alanında çalışan bir akademisyenim. Araştırma ilgi alanlarım bilgisayarlı görü, gömülü ve mobil GPU platformlarında gerçek zamanlı nesne tespiti, olay tabanlı (event-based) algılama ile sağlık ve enerji sistemleri için yapay zeka uygulamalarını kapsıyor. Sakarya Uygulamalı Bilimler Üniversitesi'nde Doktor Öğretim Üyesi olarak görev yapıyorum; ayrıca Arizona State University, School of Computing and Augmented Intelligence bünyesinde araştırma deneyimim bulunuyor.</p>
+<div class="hero" id="anasayfa">
+  <div class="hero-text">
+    <h1>Emin Güney</h1>
+    <div class="subtitle" data-tr="Doktor Öğretim Üyesi — Sakarya Uygulamalı Bilimler Üniversitesi, Bilgisayar Mühendisliği" data-en="Assistant Professor — Sakarya University of Applied Sciences, Department of Computer Engineering">Doktor Öğretim Üyesi — Sakarya Uygulamalı Bilimler Üniversitesi, Bilgisayar Mühendisliği</div>
+    <p data-tr="Bilgisayar mühendisliği alanında çalışan bir akademisyenim. Araştırma ilgi alanlarım bilgisayarlı görü, gömülü ve mobil GPU platformlarında gerçek zamanlı nesne tespiti, olay tabanlı (event-based) algılama ile sağlık ve enerji sistemleri için yapay zeka uygulamalarını kapsıyor. Sakarya Uygulamalı Bilimler Üniversitesi'nde Doktor Öğretim Üyesi olarak görev yapıyorum; ayrıca Arizona State University, School of Computing and Augmented Intelligence bünyesinde araştırma deneyimim bulunuyor." data-en="I am an academic working in the field of computer engineering. My research interests include computer vision, real-time object detection on embedded and mobile GPU platforms, event-based sensing, and AI applications for healthcare and energy systems. I currently serve as an Assistant Professor at Sakarya University of Applied Sciences; I also have research experience at Arizona State University, School of Computing and Augmented Intelligence.">Bilgisayar mühendisliği alanında çalışan bir akademisyenim. Araştırma ilgi alanlarım bilgisayarlı görü, gömülü ve mobil GPU platformlarında gerçek zamanlı nesne tespiti, olay tabanlı (event-based) algılama ile sağlık ve enerji sistemleri için yapay zeka uygulamalarını kapsıyor. Sakarya Uygulamalı Bilimler Üniversitesi'nde Doktor Öğretim Üyesi olarak görev yapıyorum; ayrıca Arizona State University, School of Computing and Augmented Intelligence bünyesinde araştırma deneyimim bulunuyor.</p>
 
-      <div class="pill-group">
-        <div class="pill"><i class="fa-solid fa-eye"></i> Bilgisayarlı Görü</div>
-      <div class="pill"><i class="fa-solid fa-microchip"></i> Gömülü / Mobil GPU Sistemleri</div>
-        <div class="pill"><i class="fa-solid fa-bolt"></i> Olay Tabanlı Algılama</div>
-        <div class="pill"><i class="fa-solid fa-heart-pulse"></i> Sağlık ve Enerji için YZ</div>
-      </div>
+    <div class="pill-group">
+      <div class="pill"><i class="fa-solid fa-eye"></i> <span data-tr="Bilgisayarlı Görü" data-en="Computer Vision">Bilgisayarlı Görü</span></div>
+      <div class="pill"><i class="fa-solid fa-microchip"></i> <span data-tr="Gömülü / Mobil GPU Sistemleri" data-en="Embedded / Mobile GPU Systems">Gömülü / Mobil GPU Sistemleri</span></div>
+      <div class="pill"><i class="fa-solid fa-bolt"></i> <span data-tr="Olay Tabanlı Algılama" data-en="Event-Based Sensing">Olay Tabanlı Algılama</span></div>
+      <div class="pill"><i class="fa-solid fa-heart-pulse"></i> <span data-tr="Sağlık ve Enerji için YZ" data-en="AI for Health & Energy">Sağlık ve Enerji için YZ</span></div>
+    </div>
 
     <div class="contact-box">
       <div><i class="fa-solid fa-envelope"></i> eminguney@subu.edu.tr</div>
-        <div><i class="fa-solid fa-phone"></i> İş: 2646160404 &nbsp; | &nbsp; Cep: 05443883895</div>
-        <div><i class="fa-solid fa-location-dot"></i> Sakarya Uygulamalı Bilimler Üniversitesi, Teknoloji Fakültesi, T3 Blok Oda No 352, Serdivan/Sakarya 54000</div>
+      <div><i class="fa-solid fa-location-dot"></i> <span data-tr="Sakarya Uygulamalı Bilimler Üniversitesi, Teknoloji Fakültesi, T3 Blok Oda No 352, Serdivan/Sakarya 54000" data-en="Sakarya University of Applied Sciences, Faculty of Technology, T3 Block Room No 352, Serdivan/Sakarya 54000, Türkiye">Sakarya Uygulamalı Bilimler Üniversitesi, Teknoloji Fakültesi, T3 Blok Oda No 352, Serdivan/Sakarya 54000</span></div>
     </div>
-    </div>
+  </div>
   <div class="hero-photo">
-      <img src="profile.jpg" alt="Emin Güney">
-    </div>
+    <img src="profile.jpg" alt="Emin Güney">
   </div>
-
-  <section id="ogrenim">
-    <h2>Öğrenim Bilgisi</h2>
+</div>
+<section id="ogrenim">
+  <h2 data-tr="Öğrenim Bilgisi" data-en="Education">Öğrenim Bilgisi</h2>
   <div class="entry">
-    <span class="role">Post-Doktora</span> — Arizona State University, School of Computing and Augmented Intelligence, Computer Science <span class="date">(2024, tamamlanma 1 Temmuz 2025)</span>
-    </div>
-    <div class="entry">
-    <span class="role">Doktora</span> — Sakarya Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar Mühendisliği (DR) <span class="date">(2021, tamamlanma 12 Eylül 2025)</span>
-      <div class="place">Tez adı: "Elektrikli gemilerin şarj prosesi için yapay zekâ tabanlı yeni bir otonom kontrol sistemi" (2025) — Tez Danışmanı: Prof. Dr. Cüneyt Bayılmış</div>
-    </div>
-    <div class="entry">
-      <span class="role">Yüksek Lisans</span> — Sakarya Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği (Tezli) <span class="date">(2019, tamamlanma 18 Ağustos 2021)</span>
-    <div class="place">Tez adı: "Sürücü asistan sistemleri için mobil GPU tabanlı gerçek zamanlı durum analizi ve tespit uygulamaları" (2021) — Tez Danışmanı: Prof. Dr. Cüneyt Bayılmış</div>
-    </div>
-    <div class="entry">
-    <span class="role">Lisans</span> — Sakarya Üniversitesi, Bilgisayar ve Bilişim Bilimleri Fakültesi, Bilgisayar Mühendisliği Bölümü (M.T.O.K., İÖ) <span class="date">(2014, tamamlanma 20 Haziran 2019)</span>
+    <span class="role" data-tr="Post-Doktora" data-en="Postdoctoral Researcher">Post-Doktora</span> — Arizona State University, School of Computing and Augmented Intelligence, Computer Science <span class="date" data-tr="(2024, tamamlanma 1 Temmuz 2025)" data-en="(2024, completed July 1, 2025)">(2024, tamamlanma 1 Temmuz 2025)</span>
   </div>
-  </section>
-
-  <section id="gorevler">
-    <h2>Akademik Görevler</h2>
   <div class="entry">
-      <span class="role">Doktor Öğretim Üyesi</span> <span class="date">(21.01.2026 – günümüz)</span>
-      <div class="place">Sakarya Uygulamalı Bilimler Üniversitesi / Teknoloji Fakültesi / Bilgisayar Mühendisliği Bölümü / Bilgisayar Mühendisliği Pr.</div>
+    <span class="role" data-tr="Doktora" data-en="Ph.D.">Doktora</span> — Sakarya Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar Mühendisliği (DR) <span class="date" data-tr="(2021, tamamlanma 12 Eylül 2025)" data-en="(2021, completed September 12, 2025)">(2021, tamamlanma 12 Eylül 2025)</span>
+    <div class="place" data-tr='Tez adı: "Elektrikli gemilerin şarj prosesi için yapay zekâ tabanlı yeni bir otonom kontrol sistemi" (2025) — Tez Danışmanı: Prof. Dr. Cüneyt Bayılmış' data-en='Thesis: "A novel AI-based autonomous control system for the charging process of electric vessels" (2025) — Advisor: Prof. Dr. Cüneyt Bayılmış'>Tez adı: "Elektrikli gemilerin şarj prosesi için yapay zekâ tabanlı yeni bir otonom kontrol sistemi" (2025) — Tez Danışmanı: Prof. Dr. Cüneyt Bayılmış</div>
   </div>
-    <div class="entry">
-      <span class="role">Araştırma Görevlisi</span> <span class="date">(01.07.2024 – 12.09.2025)</span>
+  <div class="entry">
+    <span class="role" data-tr="Yüksek Lisans" data-en="M.Sc.">Yüksek Lisans</span> — Sakarya Üniversitesi, Fen Bilimleri Enstitüsü, Bilgisayar ve Bilişim Mühendisliği (Tezli) <span class="date" data-tr="(2019, tamamlanma 18 Ağustos 2021)" data-en="(2019, completed August 18, 2021)">(2019, tamamlanma 18 Ağustos 2021)</span>
+    <div class="place" data-tr='Tez adı: "Sürücü asistan sistemleri için mobil GPU tabanlı gerçek zamanlı durum analizi ve tespit uygulamaları" (2021) — Tez Danışmanı: Prof. Dr. Cüneyt Bayılmış' data-en='Thesis: "Mobile GPU-based real-time status analysis and detection applications for driver assistance systems" (2021) — Advisor: Prof. Dr. Cüneyt Bayılmış'>Tez adı: "Sürücü asistan sistemleri için mobil GPU tabanlı gerçek zamanlı durum analizi ve tespit uygulamaları" (2021) — Tez Danışmanı: Prof. Dr. Cüneyt Bayılmış</div>
+  </div>
+  <div class="entry">
+    <span class="role" data-tr="Lisans" data-en="B.Sc.">Lisans</span> — Sakarya Üniversitesi, Bilgisayar ve Bilişim Bilimleri Fakültesi, Bilgisayar Mühendisliği Bölümü (M.T.O.K., İÖ) <span class="date" data-tr="(2014, tamamlanma 20 Haziran 2019)" data-en="(2014, completed June 20, 2019)">(2014, tamamlanma 20 Haziran 2019)</span>
+  </div>
+</section>
+
+<section id="gorevler">
+  <h2 data-tr="Akademik Görevler" data-en="Academic Positions">Akademik Görevler</h2>
+  <div class="entry">
+    <span class="role" data-tr="Doktor Öğretim Üyesi" data-en="Assistant Professor">Doktor Öğretim Üyesi</span> <span class="date" data-tr="(21.01.2026 – günümüz)" data-en="(21.01.2026 – present)">(21.01.2026 – günümüz)</span>
+    <div class="place" data-tr="Sakarya Uygulamalı Bilimler Üniversitesi / Teknoloji Fakültesi / Bilgisayar Mühendisliği Bölümü / Bilgisayar Mühendisliği Pr." data-en="Sakarya University of Applied Sciences / Faculty of Technology / Department of Computer Engineering / Computer Engineering Program">Sakarya Uygulamalı Bilimler Üniversitesi / Teknoloji Fakültesi / Bilgisayar Mühendisliği Bölümü / Bilgisayar Mühendisliği Pr.</div>
+  </div>
+  <div class="entry">
+    <span class="role" data-tr="Araştırma Görevlisi" data-en="Research Assistant">Araştırma Görevlisi</span> <span class="date">(01.07.2024 – 12.09.2025)</span>
     <div class="place">Arizona State University / School of Computing and Augmented Intelligence / Computer Science</div>
-    </div>
-    <div class="entry">
-      <span class="role">Araştırma Görevlisi</span> <span class="date">(01.09.2020 – 31.12.2025)</span>
-      <div class="place">Sakarya Uygulamalı Bilimler Üniversitesi / Teknoloji Fakültesi / Bilgisayar Mühendisliği Bölümü / Bilgisayar Mühendisliği Anabilim Dalı</div>
-    </div>
+  </div>
+  <div class="entry">
+    <span class="role" data-tr="Araştırma Görevlisi" data-en="Research Assistant">Araştırma Görevlisi</span> <span class="date">(01.09.2020 – 31.12.2025)</span>
+    <div class="place" data-tr="Sakarya Uygulamalı Bilimler Üniversitesi / Teknoloji Fakültesi / Bilgisayar Mühendisliği Bölümü / Bilgisayar Mühendisliği Anabilim Dalı" data-en="Sakarya University of Applied Sciences / Faculty of Technology / Department of Computer Engineering / Computer Engineering Graduate Program">Sakarya Uygulamalı Bilimler Üniversitesi / Teknoloji Fakültesi / Bilgisayar Mühendisliği Bölümü / Bilgisayar Mühendisliği Anabilim Dalı</div>
+  </div>
 </section>
 
 <section id="projeler">
-  <h2>Projelerde Yaptığı Görevler</h2>
+  <h2 data-tr="Projelerde Yaptığı Görevler" data-en="Project Roles">Projelerde Yaptığı Görevler</h2>
   <div class="entry">
-      <div class="role">BAPK — NVIDIA AGX ile MRI Görüntülerinin Derin Sinir Ağları Kullanılarak Beyin Tümörü Segmentasyonu</div>
-      <div class="place">Yükseköğretim Kurumları tarafından destekli bilimsel araştırma projesi — Araştırmacı: Emin Güney, Yürütücü: Süleyman Uzun</div>
-    <div class="date">14/06/2021 – 10/06/2023 (Ulusal)</div>
+    <div class="role" data-tr="BAPK — NVIDIA AGX ile MRI Görüntülerinin Derin Sinir Ağları Kullanılarak Beyin Tümörü Segmentasyonu" data-en="BAPK — Brain Tumor Segmentation from MRI Images Using Deep Neural Networks with NVIDIA AGX">BAPK — NVIDIA AGX ile MRI Görüntülerinin Derin Sinir Ağları Kullanılarak Beyin Tümörü Segmentasyonu</div>
+    <div class="place" data-tr="Yükseköğretim Kurumları tarafından destekli bilimsel araştırma projesi — Araştırmacı: Emin Güney, Yürütücü: Süleyman Uzun" data-en="Scientific research project supported by Higher Education Institutions — Researcher: Emin Güney, Principal Investigator: Süleyman Uzun">Yükseköğretim Kurumları tarafından destekli bilimsel araştırma projesi — Araştırmacı: Emin Güney, Yürütücü: Süleyman Uzun</div>
+    <div class="date" data-tr="14/06/2021 – 10/06/2023 (Ulusal)" data-en="14/06/2021 – 10/06/2023 (National)">14/06/2021 – 10/06/2023 (Ulusal)</div>
   </div>
   <div class="entry">
-    <div class="role">TÜBİTAK 2214-A Yurt Dışı Doktora Sırası Araştırma Burs Programı — Otonom Kontrolü İçin Yapay Zeka Tabanlı Algoritmaların Geliştirilmesi</div>
-    <div class="place">TÜBİTAK Projesi — Danışman: Assoc. Prof. Yezhou Yang, Yürütücü: Emin Güney</div>
-    <div class="date">01/07/2024 – 12/09/2025 (Ulusal)</div>
+    <div class="role" data-tr="TÜBİTAK 2214-A Yurt Dışı Doktora Sırası Araştırma Burs Programı — Otonom Kontrolü İçin Yapay Zeka Tabanlı Algoritmaların Geliştirilmesi" data-en="TÜBİTAK 2214-A International Doctoral Research Fellowship Program — Development of AI-Based Algorithms for Autonomous Control">TÜBİTAK 2214-A Yurt Dışı Doktora Sırası Araştırma Burs Programı — Otonom Kontrolü İçin Yapay Zeka Tabanlı Algoritmaların Geliştirilmesi</div>
+    <div class="place" data-tr="TÜBİTAK Projesi — Danışman: Assoc. Prof. Yezhou Yang, Yürütücü: Emin Güney" data-en="TÜBİTAK Project — Advisor: Assoc. Prof. Yezhou Yang, Principal Investigator: Emin Güney">TÜBİTAK Projesi — Danışman: Assoc. Prof. Yezhou Yang, Yürütücü: Emin Güney</div>
+    <div class="date" data-tr="01/07/2024 – 12/09/2025 (Ulusal)" data-en="01/07/2024 – 12/09/2025 (National)">01/07/2024 – 12/09/2025 (Ulusal)</div>
   </div>
   <div class="entry">
-    <div class="role">TÜBİTAK 2211-C Yurt İçi Öncelikli Alanlar Doktora Burs Programı — Elektrikli Şarj Sistemleri İçin Bilgisayarlı Görmeye Dayalı Otonom Kontrol Sistemi</div>
-    <div class="place">TÜBİTAK Projesi — Danışman: Cüneyt Bayılmış</div>
-    <div class="date">15/03/2022 – 12/09/2025 (Ulusal)</div>
+    <div class="role" data-tr="TÜBİTAK 2211-C Yurt İçi Öncelikli Alanlar Doktora Burs Programı — Elektrikli Şarj Sistemleri İçin Bilgisayarlı Görmeye Dayalı Otonom Kontrol Sistemi" data-en="TÜBİTAK 2211-C Domestic Priority Areas Doctoral Fellowship Program — Computer Vision-Based Autonomous Control System for Electric Charging Systems">TÜBİTAK 2211-C Yurt İçi Öncelikli Alanlar Doktora Burs Programı — Elektrikli Şarj Sistemleri İçin Bilgisayarlı Görmeye Dayalı Otonom Kontrol Sistemi</div>
+    <div class="place" data-tr="TÜBİTAK Projesi — Danışman: Cüneyt Bayılmış" data-en="TÜBİTAK Project — Advisor: Cüneyt Bayılmış">TÜBİTAK Projesi — Danışman: Cüneyt Bayılmış</div>
+    <div class="date" data-tr="15/03/2022 – 12/09/2025 (Ulusal)" data-en="15/03/2022 – 12/09/2025 (National)">15/03/2022 – 12/09/2025 (Ulusal)</div>
   </div>
   <div class="entry">
-    <div class="role">BAPK — Sürücü Asistan Sistemleri için Görüntüye Dayalı Durum Analizi ve Tespiti Uygulamalarının Gerçekleştirilmesi</div>
-    <div class="place">Yükseköğretim Kurumları tarafından destekli bilimsel araştırma projesi — Araştırmacı: Emin Güney, Yürütücü: Cüneyt Bayılmış</div>
-    <div class="date">04/02/2021 – 12/06/2022 (Ulusal)</div>
+    <div class="role" data-tr="BAPK — Sürücü Asistan Sistemleri için Görüntüye Dayalı Durum Analizi ve Tespiti Uygulamalarının Gerçekleştirilmesi" data-en="BAPK — Implementation of Image-Based Status Analysis and Detection Applications for Driver Assistant Systems">BAPK — Sürücü Asistan Sistemleri için Görüntüye Dayalı Durum Analizi ve Tespiti Uygulamalarının Gerçekleştirilmesi</div>
+    <div class="place" data-tr="Yükseköğretim Kurumları tarafından destekli bilimsel araştırma projesi — Araştırmacı: Emin Güney, Yürütücü: Cüneyt Bayılmış" data-en="Scientific research project supported by Higher Education Institutions — Researcher: Emin Güney, Principal Investigator: Cüneyt Bayılmış">Yükseköğretim Kurumları tarafından destekli bilimsel araştırma projesi — Araştırmacı: Emin Güney, Yürütücü: Cüneyt Bayılmış</div>
+    <div class="date" data-tr="04/02/2021 – 12/06/2022 (Ulusal)" data-en="04/02/2021 – 12/06/2022 (National)">04/02/2021 – 12/06/2022 (Ulusal)</div>
   </div>
-  </section>
-
+</section>
 <section id="yayinlar">
-    <h2>Yayınlar</h2>
+  <h2 data-tr="Yayınlar" data-en="Publications">Yayınlar</h2>
 
-    <h3 class="subhead">A. Uluslararası Hakemli Dergilerde Yayımlanan Makaleler</h3>
+  <h3 class="subhead" data-tr="A. Uluslararası Hakemli Dergilerde Yayımlanan Makaleler" data-en="A. Articles Published in International Peer-Reviewed Journals">A. Uluslararası Hakemli Dergilerde Yayımlanan Makaleler</h3>
 
-    <div class="pub">
-      <div class="title">An Investigation into the Interpretation of Pi (π) as the Arithmetic Mean of the Golden Ratio (φ) and the Feigenbaum Constant (δ)</div>
+  <div class="pub">
+    <div class="title">An Investigation into the Interpretation of Pi (π) as the Arithmetic Mean of the Golden Ratio (φ) and the Feigenbaum Constant (δ)</div>
     <div class="authors">Pehlivan İ., Akbulut S., Güney E. (2026)</div>
-      <div class="venue">Chaos and Fractals, 3</div>
-      <div class="badges"><span class="badge">Yayın No: 10159163</span><a class="badge doi" href="https://doi.org/10.69882/adba.chf.2026019" target="_blank">DOI</a></div>
-    </div>
+    <div class="venue">Chaos and Fractals, 3</div>
+    <div class="badges"><span class="badge">Yayın No: 10159163</span><a class="badge doi" href="https://doi.org/10.69882/adba.chf.2026019" target="_blank">DOI</a></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">YOLO-Based Personal Protective Equipment Monitoring System for Workplace Safety</div>
-      <div class="authors">Güney E., Altın H., Ascı A.E., Ütük Bayılmış O., Bayılmış C. (2024)</div>
-      <div class="venue">JITSI: Jurnal Ilmiah Teknologi Sistem Informasi, 5</div>
-      <div class="badges"><span class="badge">Yayın No: 9190636</span><a class="badge doi" href="https://doi.org/10.62527/jitsi.5.2.238" target="_blank">DOI</a></div>
-    </div>
+  <div class="pub">
+    <div class="title">YOLO-Based Personal Protective Equipment Monitoring System for Workplace Safety</div>
+    <div class="authors">Güney E., Altın H., Ascı A.E., Ütük Bayılmış O., Bayılmış C. (2024)</div>
+    <div class="venue">JITSI: Jurnal Ilmiah Teknologi Sistem Informasi, 5</div>
+    <div class="badges"><span class="badge">Yayın No: 9190636</span><a class="badge doi" href="https://doi.org/10.62527/jitsi.5.2.238" target="_blank">DOI</a></div>
+  </div>
 
-    <div class="pub">
+  <div class="pub">
     <div class="title">Autonomous control of shore robotic charging systems based on computer vision</div>
     <div class="authors">Güney E., Bayılmış C., Çakar S., Atmaca Ö., Erol Erdeniz (2024)</div>
-      <div class="venue">Expert Systems with Applications, 238(122116)</div>
-      <div class="badges"><span class="badge">Yayın No: 8639235</span><a class="badge doi" href="https://doi.org/10.1016/j.eswa.2023.122116" target="_blank">DOI</a></div>
-    </div>
+    <div class="venue">Expert Systems with Applications, 238(122116)</div>
+    <div class="badges"><span class="badge">Yayın No: 8639235</span><a class="badge doi" href="https://doi.org/10.1016/j.eswa.2023.122116" target="_blank">DOI</a></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">Real-time Recyclable Waste Detection Using YOLOv8 for Reverse Vending Machines</div>
+  <div class="pub">
+    <div class="title">Real-time Recyclable Waste Detection Using YOLOv8 for Reverse Vending Machines</div>
     <div class="authors">Kestane B.B., Güney E., Bayılmış C. (2024)</div>
-      <div class="venue">Jurnal Ilmiah Teknik Elektro Komputer dan Informatika (JITEKI)</div>
-      <div class="badges"><span class="badge">Yayın No: 9190643</span><a class="badge doi" href="https://doi.org/10.26555/jiteki.v10i2.29208" target="_blank">DOI</a></div>
-    </div>
+    <div class="venue">Jurnal Ilmiah Teknik Elektro Komputer dan Informatika (JITEKI)</div>
+    <div class="badges"><span class="badge">Yayın No: 9190643</span><a class="badge doi" href="https://doi.org/10.26555/jiteki.v10i2.29208" target="_blank">DOI</a></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">U-Net Mimarisi ile Beyin Tümörü MRI Görüntülerinin Segmentasyonu</div>
-      <div class="authors">Uzun S., Güney E., Bingöl B. (2022)</div>
-      <div class="venue">El-Cezeri: Journal of Science and Engineering</div>
-      <div class="badges"><span class="badge">Yayın No: 8114767</span><a class="badge doi" href="https://doi.org/10.31202/ecjse.1169424" target="_blank">DOI</a></div>
-    </div>
+  <div class="pub">
+    <div class="title">U-Net Mimarisi ile Beyin Tümörü MRI Görüntülerinin Segmentasyonu</div>
+    <div class="authors">Uzun S., Güney E., Bingöl B. (2022)</div>
+    <div class="venue">El-Cezeri: Journal of Science and Engineering</div>
+    <div class="badges"><span class="badge">Yayın No: 8114767</span><a class="badge doi" href="https://doi.org/10.31202/ecjse.1169424" target="_blank">DOI</a></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">MongoDB Based Real-Time Monitoring Heart Rate Using Websocket For Remote Healthcare</div>
+  <div class="pub">
+    <div class="title">MongoDB Based Real-Time Monitoring Heart Rate Using Websocket For Remote Healthcare</div>
     <div class="authors">Güney E., Ağırtaş G., Bayılmış C. (2022)</div>
-      <div class="venue">Jurnal Ilmiah Teknik Elektro Komputer dan Informatika (JITEKI)</div>
-      <div class="badges"><span class="badge">Yayın No: 8114750</span><a class="badge doi" href="https://doi.org/10.26555/jiteki.v8i4.25052" target="_blank">DOI</a></div>
-    </div>
+    <div class="venue">Jurnal Ilmiah Teknik Elektro Komputer dan Informatika (JITEKI)</div>
+    <div class="badges"><span class="badge">Yayın No: 8114750</span><a class="badge doi" href="https://doi.org/10.26555/jiteki.v8i4.25052" target="_blank">DOI</a></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">An Implementation of Real-Time Traffic Signs and Road Objects Detection Based on Mobile GPU Platforms</div>
-      <div class="authors">Güney E., Çakan B., Bayılmış C. (2022)</div>
-      <div class="venue">IEEE Access, 10, 86191–86203</div>
-      <div class="badges"><span class="badge">Yayın No: 7979902</span><a class="badge doi" href="https://doi.org/10.1109/ACCESS.2022.3198954" target="_blank">DOI</a></div>
-    </div>
+  <div class="pub">
+    <div class="title">An Implementation of Real-Time Traffic Signs and Road Objects Detection Based on Mobile GPU Platforms</div>
+    <div class="authors">Güney E., Çakan B., Bayılmış C. (2022)</div>
+    <div class="venue">IEEE Access, 10, 86191–86203</div>
+    <div class="badges"><span class="badge">Yayın No: 7979902</span><a class="badge doi" href="https://doi.org/10.1109/ACCESS.2022.3198954" target="_blank">DOI</a></div>
+  </div>
 
-    <h3 class="subhead">B. Uluslararası Bilimsel Toplantılarda Sunulan ve Bildiri Kitaplarında Basılan Bildiriler</h3>
+  <h3 class="subhead" data-tr="B. Uluslararası Bilimsel Toplantılarda Sunulan ve Bildiri Kitaplarında Basılan Bildiriler" data-en="B. Papers Presented at International Scientific Meetings and Published in Proceedings">B. Uluslararası Bilimsel Toplantılarda Sunulan ve Bildiri Kitaplarında Basılan Bildiriler</h3>
 
   <div class="pub">
     <div class="title">Response Times Comparison of MongoDB and PostgreSQL Databases in Specific Test Scenarios</div>
-      <div class="authors">Güney E., Ceylan Nurdoğan (2022)</div>
-      <div class="venue">International Congress of Electrical and Computer Engineering, 178–188 (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 8114798</span></div>
-    </div>
+    <div class="authors">Güney E., Ceylan Nurdoğan (2022)</div>
+    <div class="venue">International Congress of Electrical and Computer Engineering, 178–188 (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 8114798</span></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">Electric shore-to-ship charging socket detection using image processing and YOLO</div>
+  <div class="pub">
+    <div class="title">Electric shore-to-ship charging socket detection using image processing and YOLO</div>
     <div class="authors">Güney E., Şahin İ.H., Çakar S., Atmaca Ö., Erol Erdeniz, Doğanlı Mert, Bayılmış C. (2022)</div>
     <div class="venue">2022 International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT) (Tam Metin Bildiri/Sözlü Sunum)</div>
     <div class="badges"><span class="badge">Yayın No: 7979967</span><a class="badge doi" href="https://doi.org/10.1109/ISMSIT56059.2022.9932841" target="_blank">DOI</a></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">A Mobile Solar Tracking System Prototype to Measure Power Efficiency in Sakarya, Turkey</div>
-      <div class="authors">Gürevin B., Güney E. (2023)</div>
-      <div class="venue">3rd International Conference on Engineering and Applied Natural Sciences, 432–436 (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 8337649</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">A Study on the Design of a Braille Printer Working on a Microcomputer</div>
-    <div class="authors">Gürevin B., Güney E. (2023)</div>
-      <div class="venue">International Conference on Recent and Innovative Results in Engineering and Technology (Tam Metin Bildiri/Sözlü Sunum)</div>
-    <div class="badges"><span class="badge">Yayın No: 8639221</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">A Real-Time Tracking System for Bread Production Based on YOLOv8 and DeepSORT</div>
-      <div class="authors">Şişman H.İ., Güney E., Bayılmış C. (2024)</div>
-      <div class="venue">ICAETA-2024 Recent Trends and Advances in Artificial Intelligence (Tam Metin Bildiri/Sözlü Sunum)</div>
-    <div class="badges"><span class="badge">Yayın No: 9190652</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">Olay Kameralarına Yönelik Güncel Çalışmalar ve Literatür İncelemesi</div>
-    <div class="authors">Güney E. (2025)</div>
-    <div class="venue">5th International Conference on Frontiers in Academic Research, ICFAR (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 9782099</span></div>
-    </div>
+  </div>
 
   <div class="pub">
-      <div class="title">Performance Evaluation of Event-Based and RGB Cameras in Dynamic Scenes</div>
+    <div class="title">A Mobile Solar Tracking System Prototype to Measure Power Efficiency in Sakarya, Turkey</div>
+    <div class="authors">Gürevin B., Güney E. (2023)</div>
+    <div class="venue">3rd International Conference on Engineering and Applied Natural Sciences, 432–436 (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 8337649</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">A Study on the Design of a Braille Printer Working on a Microcomputer</div>
+    <div class="authors">Gürevin B., Güney E. (2023)</div>
+    <div class="venue">International Conference on Recent and Innovative Results in Engineering and Technology (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 8639221</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">A Real-Time Tracking System for Bread Production Based on YOLOv8 and DeepSORT</div>
+    <div class="authors">Şişman H.İ., Güney E., Bayılmış C. (2024)</div>
+    <div class="venue">ICAETA-2024 Recent Trends and Advances in Artificial Intelligence (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 9190652</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">Olay Kameralarına Yönelik Güncel Çalışmalar ve Literatür İncelemesi</div>
+    <div class="authors">Güney E. (2025)</div>
+    <div class="venue">5th International Conference on Frontiers in Academic Research, ICFAR (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 9782099</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">Performance Evaluation of Event-Based and RGB Cameras in Dynamic Scenes</div>
     <div class="authors">Güney E. (2025)</div>
     <div class="venue">3rd International Conference on Pioneer and Innovative Studies, ICPIS (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 9782108</span></div>
-    </div>
+    <div class="badges"><span class="badge">Yayın No: 9782108</span></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">Performance Analysis of Multiple Object Tracking Algorithms for Maritime Environments</div>
+  <div class="pub">
+    <div class="title">Performance Analysis of Multiple Object Tracking Algorithms for Maritime Environments</div>
     <div class="authors">Güney E., Bayılmış C. (2025)</div>
-      <div class="venue">3rd International Conference on Pioneer and Innovative Studies, ICPIS (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 9782114</span></div>
-    </div>
+    <div class="venue">3rd International Conference on Pioneer and Innovative Studies, ICPIS (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 9782114</span></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">Recent Advances in Multi-Sensor Fusion Techniques</div>
+  <div class="pub">
+    <div class="title">Recent Advances in Multi-Sensor Fusion Techniques</div>
     <div class="authors">Güney E. (2025)</div>
     <div class="venue">7th International Conference on Engineering and Applied Natural Sciences (ICEANS 2025) (Tam Metin Bildiri/Sözlü Sunum)</div>
     <div class="badges"><span class="badge">Yayın No: 9951479</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">Deep Learning for Communication-Aware V2X Perception</div>
-      <div class="authors">Güney E. (2025)</div>
-      <div class="venue">7th International Conference on Engineering and Applied Natural Sciences (ICEANS 2025) (Tam Metin Bildiri/Sözlü Sunum)</div>
-    <div class="badges"><span class="badge">Yayın No: 9951497</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">Comparing Edge-AI Multi-Sensor Fusion Models</div>
-    <div class="authors">Güney E. (2025)</div>
-    <div class="venue">4th International Conference on Modern and Advanced Research (ICMAR 2025) (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 9951421</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">Sensor Fusion in Autonomous Systems: A Short Review</div>
-    <div class="authors">Güney E. (2025)</div>
-    <div class="venue">4th International Conference on Modern and Advanced Research (ICMAR 2025) (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 9951392</span></div>
-    </div>
-
-    <div class="pub">
-      <div class="title">YOLOv5-Based Driver Behaviour Monitoring System for Safer Roads on Jetson Xavier NX</div>
-      <div class="authors">Güney E., Bayılmış C. (2024)</div>
-      <div class="venue">ICAETA-2024 Recent Trends and Advances in Artificial Intelligence (Tam Metin Bildiri/Sözlü Sunum)</div>
-    <div class="badges"><span class="badge">Yayın No: 9190648</span></div>
-    </div>
-
-    <h3 class="subhead">C. Yazılan Ulusal/Uluslararası Kitaplardaki Bölümler</h3>
-
-    <div class="pub">
-      <div class="title">Deep Learning-Based Vision Perception and Video Analytics</div>
-    <div class="authors">Bölüm, "Current Concepts and Innovative Research in Engineering" (2025)</div>
-      <div class="venue">All Sciences Academy, Basım Sayısı: 4, Sayfa Sayısı: 1111, ISBN: 978-625-8536-30-0, İngilizce (Bilimsel Kitap)</div>
-      <div class="badges"><span class="badge">Yayın No: 9951222</span></div>
   </div>
 
-    <div class="pub">
-      <div class="title">Görüş Hattı Dışı Yaklaşım (NLOS) Teknolojileri</div>
-      <div class="authors">Güney E. — Bölüm, "Mühendislikte Yeni Kavramlar ve İleri Çalışmalar" (2025)</div>
-      <div class="venue">All Sciences Academy, Basım Sayısı: 1, Sayfa Sayısı: 645, ISBN: 978-625-5794-55-0, Türkçe (Bilimsel Kitap)</div>
-      <div class="badges"><span class="badge">Yayın No: 9782140</span></div>
-    </div>
+  <div class="pub">
+    <div class="title">Deep Learning for Communication-Aware V2X Perception</div>
+    <div class="authors">Güney E. (2025)</div>
+    <div class="venue">7th International Conference on Engineering and Applied Natural Sciences (ICEANS 2025) (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 9951497</span></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">Video Kameraya Dayalı Algılama Teknolojileri</div>
-      <div class="authors">Güney E. — Bölüm, "Mühendislikte Yeni Kavramlar ve İleri Çalışmalar" (2025)</div>
-      <div class="venue">All Sciences Academy, Basım Sayısı: 1, Sayfa Sayısı: 645, ISBN: 978-625-5794-55-0, Türkçe (Bilimsel Kitap)</div>
-      <div class="badges"><span class="badge">Yayın No: 9782160</span></div>
-    </div>
+  <div class="pub">
+    <div class="title">Comparing Edge-AI Multi-Sensor Fusion Models</div>
+    <div class="authors">Güney E. (2025)</div>
+    <div class="venue">4th International Conference on Modern and Advanced Research (ICMAR 2025) (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 9951421</span></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">Sensor Fusion and Perception Technologies in Intelligent Systems</div>
+  <div class="pub">
+    <div class="title">Sensor Fusion in Autonomous Systems: A Short Review</div>
+    <div class="authors">Güney E. (2025)</div>
+    <div class="venue">4th International Conference on Modern and Advanced Research (ICMAR 2025) (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 9951392</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">YOLOv5-Based Driver Behaviour Monitoring System for Safer Roads on Jetson Xavier NX</div>
+    <div class="authors">Güney E., Bayılmış C. (2024)</div>
+    <div class="venue">ICAETA-2024 Recent Trends and Advances in Artificial Intelligence (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 9190648</span></div>
+  </div>
+  <h3 class="subhead" data-tr="C. Yazılan Ulusal/Uluslararası Kitaplardaki Bölümler" data-en="C. Chapters in National/International Books">C. Yazılan Ulusal/Uluslararası Kitaplardaki Bölümler</h3>
+
+  <div class="pub">
+    <div class="title">Deep Learning-Based Vision Perception and Video Analytics</div>
+    <div class="authors">Bölüm, "Current Concepts and Innovative Research in Engineering" (2025)</div>
+    <div class="venue">All Sciences Academy, Basım Sayısı: 4, Sayfa Sayısı: 1111, ISBN: 978-625-8536-30-0, İngilizce (Bilimsel Kitap)</div>
+    <div class="badges"><span class="badge">Yayın No: 9951222</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">Görüş Hattı Dışı Yaklaşım (NLOS) Teknolojileri</div>
+    <div class="authors">Güney E. — Bölüm, "Mühendislikte Yeni Kavramlar ve İleri Çalışmalar" (2025)</div>
+    <div class="venue">All Sciences Academy, Basım Sayısı: 1, Sayfa Sayısı: 645, ISBN: 978-625-5794-55-0, Türkçe (Bilimsel Kitap)</div>
+    <div class="badges"><span class="badge">Yayın No: 9782140</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">Video Kameraya Dayalı Algılama Teknolojileri</div>
+    <div class="authors">Güney E. — Bölüm, "Mühendislikte Yeni Kavramlar ve İleri Çalışmalar" (2025)</div>
+    <div class="venue">All Sciences Academy, Basım Sayısı: 1, Sayfa Sayısı: 645, ISBN: 978-625-5794-55-0, Türkçe (Bilimsel Kitap)</div>
+    <div class="badges"><span class="badge">Yayın No: 9782160</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="title">Sensor Fusion and Perception Technologies in Intelligent Systems</div>
     <div class="authors">Güney E. — Bölüm, "Current Concepts and Innovative Research in Computer Sciences and Engineering" (2025), Editör: Alaybeyoğlu A.</div>
-      <div class="venue">All Sciences Academy, Basım Sayısı: 1, Sayfa Sayısı: 120, ISBN: 978-625-8536-43-0, Türkçe (Bilimsel Kitap)</div>
-      <div class="badges"><span class="badge">Yayın No: 9951200</span></div>
-    </div>
+    <div class="venue">All Sciences Academy, Basım Sayısı: 1, Sayfa Sayısı: 120, ISBN: 978-625-8536-43-0, Türkçe (Bilimsel Kitap)</div>
+    <div class="badges"><span class="badge">Yayın No: 9951200</span></div>
+  </div>
 
-    <h3 class="subhead">D. Ulusal Hakemli Dergilerde Yayımlanan Makaleler</h3>
+  <h3 class="subhead" data-tr="D. Ulusal Hakemli Dergilerde Yayımlanan Makaleler" data-en="D. Articles Published in National Peer-Reviewed Journals">D. Ulusal Hakemli Dergilerde Yayımlanan Makaleler</h3>
 
-    <div class="pub">
-      <div class="title">Design and Implementation of Remote Lab PID Controller Experiment Based on IoT</div>
+  <div class="pub">
+    <div class="title">Design and Implementation of Remote Lab PID Controller Experiment Based on IoT</div>
     <div class="authors">Eishorafa M., Güney E., Pehlivan İ., Bayılmış C. (2024)</div>
-      <div class="venue">Sakarya University Journal of Computer and Information Sciences, 7(2), 277–288</div>
-      <div class="badges"><span class="badge">Kontrol No: 9190633</span><a class="badge doi" href="https://doi.org/10.35377/saucis.1472832" target="_blank">DOI</a></div>
-    </div>
+    <div class="venue">Sakarya University Journal of Computer and Information Sciences, 7(2), 277–288</div>
+    <div class="badges"><span class="badge">Kontrol No: 9190633</span><a class="badge doi" href="https://doi.org/10.35377/saucis.1472832" target="_blank">DOI</a></div>
+  </div>
 
-    <div class="pub">
-      <div class="title">Mobil Platformda IoT Temelli ve Soket Programlamaya Dayalı Termal Sensör Uygulaması</div>
-      <div class="authors">Güney E., Yaşar A., Ağırtaş G., Bayılmış C. (2023)</div>
-      <div class="venue">Düzce Üniversitesi Bilim ve Teknoloji Dergisi</div>
+  <div class="pub">
+    <div class="title">Mobil Platformda IoT Temelli ve Soket Programlamaya Dayalı Termal Sensör Uygulaması</div>
+    <div class="authors">Güney E., Yaşar A., Ağırtaş G., Bayılmış C. (2023)</div>
+    <div class="venue">Düzce Üniversitesi Bilim ve Teknoloji Dergisi</div>
     <div class="badges"><span class="badge">Kontrol No: 8337640</span><a class="badge doi" href="https://doi.org/10.29130/dubited.1064120" target="_blank">DOI</a></div>
-    </div>
+  </div>
 
-    <div class="pub">
-      <div class="title">A conceptual system proposal for real-time detection of jellyfish density in coastal areas from UAV images</div>
-      <div class="authors">Dereli S., Okuyar M., Güney E. (2023)</div>
-      <div class="venue">Erciyes Üniversitesi Fen Bilimleri Enstitüsü Fen Bilimleri Dergisi</div>
+  <div class="pub">
+    <div class="title">A conceptual system proposal for real-time detection of jellyfish density in coastal areas from UAV images</div>
+    <div class="authors">Dereli S., Okuyar M., Güney E. (2023)</div>
+    <div class="venue">Erciyes Üniversitesi Fen Bilimleri Enstitüsü Fen Bilimleri Dergisi</div>
     <div class="badges"><span class="badge">Kontrol No: 8639229</span></div>
-    </div>
+  </div>
 
-    <div class="pub">
-      <div class="title">An Implementation of Traffic Signs and Road Objects Detection Using Faster R-CNN</div>
-      <div class="authors">Güney E., Bayılmış C. (2022)</div>
-      <div class="venue">Sakarya University Journal of Computer and Information Sciences, 5(2)</div>
-      <div class="badges"><span class="badge">Kontrol No: 7979906</span><a class="badge doi" href="https://doi.org/10.35377/saucis.1073355" target="_blank">DOI</a></div>
-    </div>
+  <div class="pub">
+    <div class="title">An Implementation of Traffic Signs and Road Objects Detection Using Faster R-CNN</div>
+    <div class="authors">Güney E., Bayılmış C. (2022)</div>
+    <div class="venue">Sakarya University Journal of Computer and Information Sciences, 5(2)</div>
+    <div class="badges"><span class="badge">Kontrol No: 7979906</span><a class="badge doi" href="https://doi.org/10.35377/saucis.1073355" target="_blank">DOI</a></div>
+  </div>
 
-  <h3 class="subhead">E. Ulusal Bilimsel Toplantılarda Sunulan ve Bildiri Kitaplarında Basılan Bildiriler</h3>
+  <h3 class="subhead" data-tr="E. Ulusal Bilimsel Toplantılarda Sunulan ve Bildiri Kitaplarında Basılan Bildiriler" data-en="E. Papers Presented at National Scientific Meetings and Published in Proceedings">E. Ulusal Bilimsel Toplantılarda Sunulan ve Bildiri Kitaplarında Basılan Bildiriler</h3>
 
   <div class="pub">
     <div class="title">Detection of Grinding Burn Fault in Bearings by Squeeze Net</div>
-      <div class="authors">Ceylan Nurdoğan, Kaçar Sezgin, Güney E., Bayılmış C. (2022)</div>
-      <div class="venue">2022 30th Signal Processing and Communications Applications Conference (SIU), 1–4 (Tam Metin Bildiri/Sözlü Sunum)</div>
-      <div class="badges"><span class="badge">Yayın No: 7979987</span><a class="badge doi" href="https://doi.org/10.1109/SIU55565.2022.9864895" target="_blank">DOI</a></div>
-    </div>
+    <div class="authors">Ceylan Nurdoğan, Kaçar Sezgin, Güney E., Bayılmış C. (2022)</div>
+    <div class="venue">2022 30th Signal Processing and Communications Applications Conference (SIU), 1–4 (Tam Metin Bildiri/Sözlü Sunum)</div>
+    <div class="badges"><span class="badge">Yayın No: 7979987</span><a class="badge doi" href="https://doi.org/10.1109/SIU55565.2022.9864895" target="_blank">DOI</a></div>
+  </div>
 
-    <h3 class="subhead">Teknik Not, Vaka Takdimi, Araştırma Notu vb.</h3>
+  <h3 class="subhead" data-tr="Teknik Not, Vaka Takdimi, Araştırma Notu vb." data-en="Technical Notes, Case Reports, Research Notes, etc.">Teknik Not, Vaka Takdimi, Araştırma Notu vb.</h3>
 
   <div class="pub">
     <div class="title">Corrections to "An Implementation of Real-Time Traffic Signs Detection Based on Mobile GPU Platforms"</div>
-      <div class="authors">Editöre Mektup — Güney E., Çakan B., Bayılmış C. (2022)</div>
-      <div class="venue">IEEE Access, 10, 1</div>
-      <div class="badges"><span class="badge">Yayın No: 7979942</span></div>
-    </div>
+    <div class="authors">Editöre Mektup — Güney E., Çakan B., Bayılmış C. (2022)</div>
+    <div class="venue">IEEE Access, 10, 1</div>
+    <div class="badges"><span class="badge">Yayın No: 7979942</span></div>
+  </div>
 
-  </section>
-
-  <section id="deneyim">
-    <h2>Üniversite Dışı Deneyim</h2>
+</section>
+<section id="deneyim">
+  <h2 data-tr="Üniversite Dışı Deneyim" data-en="External Experience">Üniversite Dışı Deneyim</h2>
   <div class="entry">
-    <span class="role">Exchange Visitor</span> — Arizona State University (Yurtdışı Üniversite)
-      <div class="date">01.07.2024 – 01.07.2025</div>
-    </div>
+    <span class="role">Exchange Visitor</span> — Arizona State University <span data-tr="(Yurtdışı Üniversite)" data-en="(Overseas University)">(Yurtdışı Üniversite)</span>
+    <div class="date">01.07.2024 – 01.07.2025</div>
+  </div>
 
-    <h3 class="subhead">Araştırma</h3>
+  <h3 class="subhead" data-tr="Araştırma" data-en="Research">Araştırma</h3>
   <div class="entry">
-      <div class="role">2214-A TÜBİTAK Yurt Dışı Doktora Sırası Araştırma Bursu (ASU)</div>
-      <div class="place">Arizona State University, School of Computing and Augmented Intelligence bünyesinde Assoc. Prof. Yezhou Yang danışmanlığında, yapay zekâ ve bilgisayarlı görü alanında araştırma çalışmaları. Çalışma, denizcilik sistemlerinde nesne tespiti ve izleme algoritmalarının geliştirilmesini kapsamaktadır.</div>
-    <div class="date">Amerika Birleşik Devletleri (ABD) — 01.07.2024 – 01.07.2025 (Uluslararası) · No: 748666</div>
-    </div>
-  </section>
+    <div class="role" data-tr="2214-A TÜBİTAK Yurt Dışı Doktora Sırası Araştırma Bursu (ASU)" data-en="2214-A TÜBİTAK International Doctoral Research Fellowship (ASU)">2214-A TÜBİTAK Yurt Dışı Doktora Sırası Araştırma Bursu (ASU)</div>
+    <div class="place" data-tr="Arizona State University, School of Computing and Augmented Intelligence bünyesinde Assoc. Prof. Yezhou Yang danışmanlığında, yapay zekâ ve bilgisayarlı görü alanında araştırma çalışmaları. Çalışma, denizcilik sistemlerinde nesne tespiti ve izleme algoritmalarının geliştirilmesini kapsamaktadır." data-en="Conducting research in artificial intelligence and computer vision at Arizona State University, School of Computing and Augmented Intelligence, under the supervision of Assoc. Prof. Yezhou Yang. The work covers the development of object detection and tracking algorithms for maritime systems.">Arizona State University, School of Computing and Augmented Intelligence bünyesinde Assoc. Prof. Yezhou Yang danışmanlığında, yapay zekâ ve bilgisayarlı görü alanında araştırma çalışmaları. Çalışma, denizcilik sistemlerinde nesne tespiti ve izleme algoritmalarının geliştirilmesini kapsamaktadır.</div>
+    <div class="date" data-tr="Amerika Birleşik Devletleri (ABD) — 01.07.2024 – 01.07.2025 (Uluslararası) · No: 748666" data-en="United States of America (USA) — 01.07.2024 – 01.07.2025 (International) · No: 748666">Amerika Birleşik Devletleri (ABD) — 01.07.2024 – 01.07.2025 (Uluslararası) · No: 748666</div>
+  </div>
+</section>
 
-<footer>
-  © 2026 Emin Güney. Son güncelleme: Temmuz 2026.
-</footer>
+<footer data-tr="© 2026 Emin Güney. Son güncelleme: Temmuz 2026." data-en="© 2026 Emin Güney. Last updated: July 2026.">© 2026 Emin Güney. Son güncelleme: Temmuz 2026.</footer>
 
-  </body>
+<script>
+  function toggleTheme(){
+    document.body.classList.toggle('light');
+    var icon = document.querySelector('#themeBtn i');
+    if(document.body.classList.contains('light')){
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    } else {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    }
+  }
+
+  var currentLang = 'tr';
+  function toggleLang(){
+    currentLang = currentLang === 'tr' ? 'en' : 'tr';
+    document.querySelectorAll('[data-tr]').forEach(function(el){
+      el.textContent = el.getAttribute('data-' + currentLang);
+    });
+    document.getElementById('langBtn').textContent = currentLang === 'tr' ? 'EN' : 'TR';
+    document.documentElement.lang = currentLang;
+  }
+</script>
+
+</body>
 </html>
-  
